@@ -9,11 +9,12 @@ app.use(express.urlencoded({ extended: true}))
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening on ${port}`))
 
-app.get('/movies', async (request, response) => {
-    const teams = await models.Teams.findAll()
-
-    response.send(teams)
+app.get('/movies', (request, response) => {
+    models.Movies.findAll().then((movies) => {
+        response.send(movies)
+    })
 })
+
 
 
 app.all('*', (request, response) => {
