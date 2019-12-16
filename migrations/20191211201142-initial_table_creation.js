@@ -49,5 +49,7 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
+   
+   return queryInterface.dropTable('movies')
   }
 };

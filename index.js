@@ -1,5 +1,7 @@
 const express = require('express')
 const models = require('./models')
+const Op = require('sequelize').Op
+
 
 const app = express()
 
@@ -15,6 +17,11 @@ app.get('/movies', (request, response) => {
     })
 })
 
+app.get('/movies/:placeholder', (request, response) => {
+    models.Movies.findAll().then((movies) => {
+
+    response.send(match)
+})
 
 
 app.all('*', (request, response) => {
